@@ -69,17 +69,17 @@ const ACCOUNT_DATA = {
   groom: {
     title: '신랑측 계좌',
     rows: [
-      { role: '신랑',   name: '박익현', bank: '국민은행', number: '294001-04-309253' },
-      { role: '아버지', name: '박용조', bank: '국민은행', number: '004-21-0376-693' },
-      { role: '어머니', name: '윤혜숙', bank: '국민은행', number: '839-21-0089-241' },
+      { role: '신랑',   name: '박익현', bank: '국민은행', number: '937702-00-241666' },
+      { role: '아버지', name: '박용조', bank: '국민은행', number: '808-21-0310-939' },
+      { role: '어머니', name: '윤혜숙', bank: '국민은행', number: '802-24-0474317' },
     ],
   },
   bride: {
     title: '신부측 계좌',
     rows: [
-      { role: '신부',   name: '최은서', bank: '국민은행', number: '904502-01-336094' },
-      { role: '아버지', name: '최병석', bank: '국민은행', number: '470702-01-002337' },
-      { role: '어머니', name: '김윤정', bank: '국민은행', number: '821301-04-150906' },
+      { role: '신부',   name: '최은서', bank: '카카오뱅크', number: '3333-15-6610971' },
+      { role: '아버지', name: '최병석', bank: '국민은행', number: '049-21-0938686' },
+      { role: '어머니', name: '김윤정', bank: '국민은행', number: '282401-04-112397' },
     ],
   },
 };
