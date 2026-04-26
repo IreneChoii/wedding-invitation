@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>박익현 ♥ 최은서 결혼합니다</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- BGM (loop, user-toggleable) -->
+<audio id="bgm" src="audio/bgm.mp3" loop preload="auto"></audio>
+<button id="bgm-toggle" class="bgm-toggle" aria-label="배경음악 켜기/끄기">
+  <span class="bgm-icon-on">♪</span>
+</button>
+
+<main class="page">
+
+  <!-- 1 cover -->
+  <section class="sec-img sec-one">
+    <img src="images/figma/one.png" alt="박익현 · 최은서 결혼식 청첩장 표지">
+  </section>
+
+  <!-- 2 greeting -->
+  <section class="sec-img sec-two">
+    <img src="images/figma/two.png" alt="저희 결혼해요! – 인사말">
+  </section>
+
+  <!-- 3 couple photos & names -->
+  <section class="sec-img sec-three">
+    <img src="images/figma/three.jpg" alt="신랑 박익현 · 신부 최은서">
+  </section>
+
+  <!-- 4 contacts -->
+  <section class="sec-four">
+    <details class="contact-group">
+      <summary>
+        <svg class="contact-cake" viewBox="0 0 36 36" aria-hidden="true">
+          <ellipse cx="18" cy="29" rx="14" ry="2" fill="#bfe6cf" opacity=".75"/>
+          <path d="M5 18 Q5 16 7 16 L29 16 Q31 16 31 18 L31 27 Q31 28 30 28 L6 28 Q5 28 5 27 Z" fill="#fbc6cb"/>
+          <path d="M5 19 Q7 17 9 19 Q11 17 13 19 Q15 17 17 19 Q19 17 21 19 Q23 17 25 19 Q27 17 29 19 Q31 17 31 19 L31 21 L5 21 Z" fill="#fff5f5"/>
+          <path d="M7 16 Q7 14 9 14 L27 14 Q29 14 29 16 Q22 15 7 16 Z" fill="#bfe6cf"/>
+          <circle cx="12" cy="23" r="0.6" fill="#ff9aa6"/>
+          <circle cx="18" cy="24" r="0.6" fill="#ffd86b"/>
+          <circle cx="24" cy="23" r="0.6" fill="#9bc3ec"/>
+          <path d="M18 11 Q17 9 15.5 8" stroke="#9a4a18" stroke-width=".7" fill="none" stroke-linecap="round"/>
+          <circle cx="18" cy="12" r="2" fill="#e74c5b"/>
+          <circle cx="17.3" cy="11.4" r=".55" fill="#ff8b95"/>
+        </svg>
+        <span class="contact-summary-inner">
+          <span class="contact-deco">-ˋ</span>
+          <span class="contact-summary-text">신랑 &amp; 신부에게 연락하기</span>
+          <span class="contact-deco">ˎˊ-</span>
+        </span>
+        <svg class="contact-cake" viewBox="0 0 36 36" aria-hidden="true">
+          <ellipse cx="18" cy="29" rx="14" ry="2" fill="#bfe6cf" opacity=".75"/>
+          <path d="M5 18 Q5 16 7 16 L29 16 Q31 16 31 18 L31 27 Q31 28 30 28 L6 28 Q5 28 5 27 Z" fill="#fbc6cb"/>
+          <path d="M5 19 Q7 17 9 19 Q11 17 13 19 Q15 17 17 19 Q19 17 21 19 Q23 17 25 19 Q27 17 29 19 Q31 17 31 19 L31 21 L5 21 Z" fill="#fff5f5"/>
+          <path d="M7 16 Q7 14 9 14 L27 14 Q29 14 29 16 Q22 15 7 16 Z" fill="#bfe6cf"/>
+          <circle cx="12" cy="23" r="0.6" fill="#ff9aa6"/>
+          <circle cx="18" cy="24" r="0.6" fill="#ffd86b"/>
+          <circle cx="24" cy="23" r="0.6" fill="#9bc3ec"/>
+          <path d="M18 11 Q17 9 15.5 8" stroke="#9a4a18" stroke-width=".7" fill="none" stroke-linecap="round"/>
+          <circle cx="18" cy="12" r="2" fill="#e74c5b"/>
+          <circle cx="17.3" cy="11.4" r=".55" fill="#ff8b95"/>
+        </svg>
+      </summary>
+      <ul>
+        <li>
+          <span class="contact-name">박익현</span>
+          <span class="contact-phone">010-2544-4755</span>
+          <span class="contact-actions">
+            <a href="tel:010-2544-4755" aria-label="전화">📞</a>
+            <a href="sms:010-2544-4755" aria-label="문자">✉</a>
+          </span>
+        </li>
+        <li>
+          <span class="contact-name">최은서</span>
+          <span class="contact-phone">010-2700-9623</span>
+          <span class="contact-actions">
+            <a href="tel:010-2700-9623" aria-label="전화">📞</a>
+            <a href="sms:010-2700-9623" aria-label="문자">✉</a>
+          </span>
+        </li>
+      </ul>
+    </details>
+    <details class="contact-group">
+      <summary>
+        <svg class="contact-cake" viewBox="0 0 36 36" aria-hidden="true">
+          <ellipse cx="18" cy="29" rx="14" ry="2" fill="#bfe6cf" opacity=".75"/>
+          <path d="M5 18 Q5 16 7 16 L29 16 Q31 16 31 18 L31 27 Q31 28 30 28 L6 28 Q5 28 5 27 Z" fill="#fbc6cb"/>
+          <path d="M5 19 Q7 17 9 19 Q11 17 13 19 Q15 17 17 19 Q19 17 21 19 Q23 17 25 19 Q27 17 29 19 Q31 17 31 19 L31 21 L5 21 Z" fill="#fff5f5"/>
+          <path d="M7 16 Q7 14 9 14 L27 14 Q29 14 29 16 Q22 15 7 16 Z" fill="#bfe6cf"/>
+          <circle cx="12" cy="23" r="0.6" fill="#ff9aa6"/>
+          <circle cx="18" cy="24" r="0.6" fill="#ffd86b"/>
+          <circle cx="24" cy="23" r="0.6" fill="#9bc3ec"/>
+          <path d="M18 11 Q17 9 15.5 8" stroke="#9a4a18" stroke-width=".7" fill="none" stroke-linecap="round"/>
+          <circle cx="18" cy="12" r="2" fill="#e74c5b"/>
+          <circle cx="17.3" cy="11.4" r=".55" fill="#ff8b95"/>
+        </svg>
+        <span class="contact-summary-inner">
+          <span class="contact-deco">-ˋ</span>
+          <span class="contact-summary-text">혼주에게 연락하기</span>
+          <span class="contact-deco">ˎˊ-</span>
+        </span>
+        <svg class="contact-cake" viewBox="0 0 36 36" aria-hidden="true">
+          <ellipse cx="18" cy="29" rx="14" ry="2" fill="#bfe6cf" opacity=".75"/>
+          <path d="M5 18 Q5 16 7 16 L29 16 Q31 16 31 18 L31 27 Q31 28 30 28 L6 28 Q5 28 5 27 Z" fill="#fbc6cb"/>
+          <path d="M5 19 Q7 17 9 19 Q11 17 13 19 Q15 17 17 19 Q19 17 21 19 Q23 17 25 19 Q27 17 29 19 Q31 17 31 19 L31 21 L5 21 Z" fill="#fff5f5"/>
+          <path d="M7 16 Q7 14 9 14 L27 14 Q29 14 29 16 Q22 15 7 16 Z" fill="#bfe6cf"/>
+          <circle cx="12" cy="23" r="0.6" fill="#ff9aa6"/>
+          <circle cx="18" cy="24" r="0.6" fill="#ffd86b"/>
+          <circle cx="24" cy="23" r="0.6" fill="#9bc3ec"/>
+          <path d="M18 11 Q17 9 15.5 8" stroke="#9a4a18" stroke-width=".7" fill="none" stroke-linecap="round"/>
+          <circle cx="18" cy="12" r="2" fill="#e74c5b"/>
+          <circle cx="17.3" cy="11.4" r=".55" fill="#ff8b95"/>
+        </svg>
+      </summary>
+      <ul>
+        <li>
+          <span class="contact-name">박용조</span>
+          <span class="contact-phone">010-3242-4755</span>
+          <span class="contact-actions">
+            <a href="tel:010-3242-4755" aria-label="전화">📞</a>
+            <a href="sms:010-3242-4755" aria-label="문자">✉</a>
+          </span>
+        </li>
+        <li>
+          <span class="contact-name">윤혜숙</span>
+          <span class="contact-phone">010-2719-4755</span>
+          <span class="contact-actions">
+            <a href="tel:010-2719-4755" aria-label="전화">📞</a>
+            <a href="sms:010-2719-4755" aria-label="문자">✉</a>
+          </span>
+        </li>
+        <li>
+          <span class="contact-name">최병석</span>
+          <span class="contact-phone">010-3303-6342</span>
+          <span class="contact-actions">
+            <a href="tel:010-3303-6342" aria-label="전화">📞</a>
+            <a href="sms:010-3303-6342" aria-label="문자">✉</a>
+          </span>
+        </li>
+        <li>
+          <span class="contact-name">김윤정</span>
+          <span class="contact-phone">010-5699-9623</span>
+          <span class="contact-actions">
+            <a href="tel:010-5699-9623" aria-label="전화">📞</a>
+            <a href="sms:010-5699-9623" aria-label="문자">✉</a>
+          </span>
+        </li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- 5 calendar -->
+  <section class="sec-five">
+    <img src="images/figma/five.jpg" alt="2026년 6월 결혼식 캘린더">
+  </section>
+
+  <!-- 6 gallery -->
+  <section class="sec-six">
+    <img class="gallery-banner-img" src="images/figma/gallery_banner.png" alt="gallery">
+    <div class="gallery-preview" id="gallery-preview"></div>
+    <div class="gallery-more-wrap">
+      <button class="cute-btn cute-btn--yellow" id="gallery-more">갤러리 더보기</button>
+    </div>
+  </section>
+
+  <!-- 7 decorative banner -->
+  <section class="sec-img sec-seven">
+    <img src="images/figma/seven.png" alt="">
+  </section>
+
+  <!-- 8 wedding info -->
+  <section class="sec-eight">
+    <img src="images/figma/eight.jpg" alt="식순 · 식장 · 위치 안내">
+  </section>
+
+  <!-- 8-2 찾아오시는 길 -->
+  <section class="sec-map">
+    <img class="sec-map-img" src="images/figma/eight-2.png" alt="찾아오시는 길 – 더뉴컨벤션 르노브 홀">
+    <button class="cute-btn cute-btn--sky" id="open-map-modal">지도 바로 가기</button>
+  </section>
+
+  <!-- 9 decorative banner -->
+  <section class="sec-img sec-nine">
+    <img src="images/figma/nine.png" alt="">
+  </section>
+
+  <!-- 10 account -->
+  <section class="sec-ten">
+    <img src="images/figma/ten_bg.jpg" class="sec-ten-bg" alt="마음 전하실 곳">
+    <div class="sec-ten-buttons">
+      <button class="acc-btn" data-side="groom">신랑측</button>
+      <button class="acc-btn" data-side="bride">신부측</button>
+    </div>
+  </section>
+
+  <!-- 11 message (custom) -->
+  <section class="sec-eleven">
+    <h2 class="eleven-title">-ˋˏ 축하 메세지 남기기 ˎˊ-</h2>
+    <p class="eleven-sub">소중한 마음을 담아 전해주세요</p>
+    <p class="msg-status" id="msg-status">로컬 저장 모드</p>
+    <div class="msg-list" id="msg-list"></div>
+    <div class="msg-dots" id="msg-dots"></div>
+    <button class="cute-btn cute-btn--pink" id="open-message-form">축하글 작성하기</button>
+  </section>
+
+  <!-- 11-2 photo share -->
+  <section class="sec-photo-share">
+    <img class="photo-share-banner" src="images/figma/snap.png" alt="snap">
+    <button class="cute-btn cute-btn--soft-pink" id="open-photo-share">사진 공유하기</button>
+  </section>
+
+  <!-- 11-3 share invitation -->
+  <section class="sec-share">
+    <img class="share-banner" src="images/figma/share-banner.png" alt="공유하기">
+    <div class="share-buttons">
+      <button class="share-btn" id="share-kakao">
+        <img src="images/icon/kakao-share.png" alt="">
+        <span>카카오톡<br>공유하기</span>
+      </button>
+      <button class="share-btn" id="share-link">
+        <img src="images/icon/link-share.png" alt="">
+        <span>링크<br>복사하기</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 12 thank you -->
+  <section class="sec-img sec-twelve">
+    <img src="images/figma/twelve.jpg" alt="Thank you!">
+  </section>
+
+</main>
+
+<!-- ===== MODALS ===== -->
+
+<!-- Gallery full modal -->
+<div class="gallery-modal" id="gallery-modal">
+  <div class="gallery-modal-inner">
+    <div class="gallery-modal-header">
+      <button class="gallery-modal-close" id="gallery-modal-close" aria-label="닫기">×</button>
+      <div class="gallery-modal-titles">
+        <p class="gallery-modal-eyebrow">･ﾟ✩ Ikhyun &amp; EunSuh ✩ﾟ･</p>
+        <h3 class="gallery-modal-title">Our Gallery</h3>
+        <p class="gallery-modal-count" id="gallery-modal-count"></p>
+      </div>
+    </div>
+    <div class="gallery-modal-grid" id="gallery-modal-grid"></div>
+    <div class="gallery-modal-foot">♡</div>
+  </div>
+</div>
+
+<!-- Account modal -->
+<div class="modal-overlay" id="account-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="account-modal-title">계좌 정보</h3>
+      <button class="modal-close" data-close="account">×</button>
+    </div>
+    <div class="modal-body" id="account-modal-body"></div>
+  </div>
+</div>
+
+<!-- Message form modal -->
+<div class="modal-overlay" id="message-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>축하글 남기기</h3>
+      <button class="modal-close" data-close="message">×</button>
+    </div>
+    <div class="modal-body">
+      <form class="msg-form" id="message-form">
+        <input type="text" name="name" placeholder="이름" maxlength="20" required>
+        <input type="password" name="password" placeholder="비밀번호 (삭제 시 필요)" maxlength="20" required>
+        <textarea name="body" placeholder="신랑 신부에게 축하의 마음을 전해주세요" maxlength="300" required></textarea>
+        <p class="msg-form-hint">비밀번호는 삭제할 때만 사용됩니다</p>
+        <button type="submit" class="cute-btn cute-btn--pink msg-form-submit">작성 완료</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Delete password modal -->
+<div class="modal-overlay" id="delete-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>축하글 삭제</h3>
+      <button class="modal-close" data-close="delete">×</button>
+    </div>
+    <div class="modal-body">
+      <form class="msg-form" id="delete-form">
+        <p class="msg-form-hint">작성 시 입력한 비밀번호를 입력해주세요</p>
+        <input type="password" id="delete-password" placeholder="비밀번호" maxlength="20" required>
+        <button type="submit" class="cute-btn cute-btn--pink msg-form-submit">삭제</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Map shortcut modal -->
+<div class="modal-overlay" id="map-modal">
+  <div class="modal map-modal">
+    <button class="modal-close map-modal-close" data-close="map" aria-label="닫기">×</button>
+    <div class="map-modal-body">
+      <a class="map-app-btn" href="nmap://search?query=더뉴컨벤션웨딩"
+         data-fallback="https://map.naver.com/p/search/더뉴컨벤션웨딩%20르노브홀" target="_blank" rel="noopener" aria-label="네이버지도">
+        <img src="images/icon/naver.png" alt="네이버지도">
+      </a>
+      <a class="map-app-btn" href="kakaomap://search?q=더뉴컨벤션웨딩"
+         data-fallback="https://map.kakao.com/?q=더뉴컨벤션웨딩" target="_blank" rel="noopener" aria-label="카카오맵">
+        <img src="images/icon/kakao.png" alt="카카오맵">
+      </a>
+      <a class="map-app-btn" href="tmap://search?name=더뉴컨벤션웨딩"
+         data-fallback="https://tmap.life/" target="_blank" rel="noopener" aria-label="T맵">
+        <img src="images/icon/Tmap.png" alt="T맵">
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Photo share modal -->
+<div class="modal-overlay" id="photo-share-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>사진 공유하기</h3>
+      <button class="modal-close" data-close="photo-share">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="photo-share-desc">결혼식에서 찍은 사진을 신랑·신부에게 보내주세요 ♡</p>
+      <input type="text" id="photo-uploader-name" class="photo-share-name" placeholder="이름 (선택)" maxlength="20">
+      <label class="photo-drop" for="photo-input">
+        <span class="photo-drop-icon">📷</span>
+        <span class="photo-drop-text">사진 선택하기</span>
+        <span class="photo-drop-hint">여러 장 한꺼번에 선택 가능</span>
+        <input type="file" id="photo-input" multiple accept="image/*" hidden>
+      </label>
+      <div id="photo-preview" class="photo-preview"></div>
+      <button class="cute-btn cute-btn--soft-pink photo-upload-btn" id="photo-upload-btn">업로드</button>
+      <p id="photo-upload-status" class="photo-upload-status"></p>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="닫기">×</button>
+  <div class="lightbox-stage">
+    <div class="lightbox-side lightbox-side-prev"><img id="lightbox-prev-thumb" src="" alt=""></div>
+    <div class="lightbox-frame">
+      <img id="lightbox-img" src="" alt="">
+    </div>
+    <div class="lightbox-side lightbox-side-next"><img id="lightbox-next-thumb" src="" alt=""></div>
+  </div>
+  <div class="lightbox-nav">
+    <button id="lightbox-prev" aria-label="이전">‹</button>
+    <span class="lightbox-counter" id="lightbox-counter"></span>
+    <button id="lightbox-next" aria-label="다음">›</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
