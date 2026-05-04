@@ -19,6 +19,14 @@
   font-display: swap; font-family: 'Freesentation'; font-weight: 700;
   src: url('fonts/Freesentation-6SemiBold.ttf') format('truetype');
 }
+@font-face {
+  font-display: swap; font-family: 'RationalTW Display'; font-weight: 300;
+  src: url('fonts/RationalTWDisplayDEMO-Light.otf') format('opentype');
+}
+@font-face {
+  font-display: swap; font-family: 'RationalTW Display'; font-weight: 600;
+  src: url('fonts/RationalTWDisplayDEMO-SemiBold.otf') format('opentype');
+}
 
 /* Tokens */
 :root {
@@ -75,11 +83,57 @@ a { color: inherit; text-decoration: none; }
 
 /* sec-five: Figma frame is 880/1024 wide, centered */
 .sec-five {
-  padding: 36px 7%;
+  padding: 36px 7% 56px;
   background: #fff;
   line-height: 0;
 }
 .sec-five > img { width: 100%; height: auto; display: block; }
+
+/* D-Day counter */
+.dday {
+  margin-top: 28px;
+  text-align: center;
+  line-height: 1.4;
+}
+.dday-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--line-soft);
+  margin: 0 auto 22px;
+}
+.dday-divider--bottom {
+  margin: 16px auto 0;
+}
+.dday-label {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: #373737;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+.dday-count {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+.dday-num {
+  font-family: 'RationalTW Display', 'Sukari', 'Freesentation', serif;
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: #C9AFDA;
+  filter:
+    drop-shadow(0 0 4px rgba(255, 232, 240, 0.7))
+    drop-shadow(0 0 9px rgba(255, 232, 240, 0.55))
+    drop-shadow(0 0 18px rgba(255, 232, 240, 0.38));
+}
+.dday-unit {
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text-soft);
+  letter-spacing: 0.04em;
+}
 
 /* ============================================================
    4. CONTACTS (HTML)
@@ -460,18 +514,12 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
   position: relative;
 }
-.eleven-title {
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 4px;
-  letter-spacing: 0.02em;
-}
-.eleven-sub {
-  font-size: 13px;
-  color: var(--text-soft);
-  margin-bottom: 24px;
-  font-weight: 300;
+.eleven-banner {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+  margin: 0 auto 24px;
 }
 
 .msg-status {
@@ -681,6 +729,30 @@ a { color: inherit; text-decoration: none; }
   --cute-hover-bg: #fff9f9;
   --cute-hover-shadow: rgba(255, 180, 180, 0.30);
 }
+.cute-btn--lavender {
+  --cute-border: #D1D3F5;
+  --cute-text: #5e62a3;
+  --cute-icon: #a3a7d6;
+  --cute-shadow: rgba(165, 168, 220, 0.26);
+  --cute-hover-bg: #f3f4fc;
+  --cute-hover-shadow: rgba(126, 130, 200, 0.34);
+}
+
+/* ============================================================
+   Afterparty section
+   ============================================================ */
+.sec-afterparty {
+  background: #ffffff;
+  padding: 0 24px 48px;
+  text-align: center;
+}
+.afterparty-banner {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+  margin: 0 auto 28px;
+}
 
 /* ============================================================
    Photo share section
@@ -879,6 +951,19 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
+
+/* Lavender-tinted overlay for afterparty modal */
+.modal-overlay#afterparty-modal {
+  background: rgba(209, 211, 245, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.modal-overlay#afterparty-modal .modal-header {
+  border-bottom: 1px solid #D1D3F5;
+}
+.modal-overlay#afterparty-modal .modal-close {
+  color: #7a7eb5;
+}
 .modal {
   background: #fff;
   border-radius: 16px;
@@ -976,6 +1061,72 @@ a { color: inherit; text-decoration: none; }
   font-size: 11px;
   color: var(--text-soft);
 }
+
+/* Afterparty form */
+.afterparty-desc {
+  font-size: 13px;
+  color: #6b6fa8;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+.afterparty-form {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.afterparty-form input,
+.afterparty-form select,
+.afterparty-form textarea {
+  border: 1px solid #D1D3F5;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  background: #f8f9fc;
+  font-family: inherit;
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.afterparty-form input::placeholder,
+.afterparty-form textarea::placeholder {
+  color: #a3a7d6;
+}
+.afterparty-form input:focus,
+.afterparty-form select:focus,
+.afterparty-form textarea:focus {
+  border-color: #9da1da;
+  background: #f3f4fc;
+}
+.afterparty-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='none' stroke='%237a7eb5' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' d='M1 1l4 4 4-4'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 34px;
+  color: #5e62a3;
+}
+.afterparty-form select:invalid { color: #a3a7d6; }
+.afterparty-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.afterparty-submit {
+  width: 100%;
+  margin-top: 6px;
+}
+.afterparty-submit:disabled { opacity: 0.55; cursor: progress; }
+.afterparty-status {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 12px;
+  color: #7a7eb5;
+  min-height: 18px;
+}
+.afterparty-status.ok    { color: #2a8556; }
+.afterparty-status.error { color: #c34a4a; }
 
 /* Lightbox – soft white frame style */
 .lightbox {
@@ -1149,6 +1300,5 @@ a { color: inherit; text-decoration: none; }
   body { padding: 24px 0; }
 }
 @media (max-width: 360px) {
-  .eleven-title { font-size: 22px; }
   .acc-btn { font-size: 16px; }
 }

@@ -179,6 +179,15 @@
   <!-- 5 calendar -->
   <section class="sec-five">
     <img src="images/figma/five.jpg" alt="2026년 6월 결혼식 캘린더">
+    <div class="dday">
+      <div class="dday-divider"></div>
+      <p class="dday-label">익현 ♥ 은서의 결혼식까지</p>
+      <p class="dday-count">
+        <span class="dday-num" id="dday-num">--</span>
+        <span class="dday-unit">일</span>
+      </p>
+      <div class="dday-divider dday-divider--bottom"></div>
+    </div>
   </section>
 
   <!-- 6 gallery -->
@@ -222,12 +231,17 @@
 
   <!-- 11 message (custom) -->
   <section class="sec-eleven">
-    <h2 class="eleven-title">-ˋˏ 축하 메세지 남기기 ˎˊ-</h2>
-    <p class="eleven-sub">소중한 마음을 담아 전해주세요</p>
+    <img class="eleven-banner" src="images/figma/message.png" alt="축하 메세지 남기기">
     <p class="msg-status" id="msg-status">로컬 저장 모드</p>
     <div class="msg-list" id="msg-list"></div>
     <div class="msg-dots" id="msg-dots"></div>
     <button class="cute-btn cute-btn--pink" id="open-message-form">축하글 작성하기</button>
+  </section>
+
+  <!-- 11-1 afterparty -->
+  <section class="sec-afterparty">
+    <img class="afterparty-banner" src="images/figma/party.png" alt="뒤풀이 안내">
+    <button class="cute-btn cute-btn--lavender" id="open-afterparty">뒤풀이 참여하기</button>
   </section>
 
   <!-- 11-2 photo share -->
@@ -338,6 +352,31 @@
          data-fallback="https://tmap.life/" target="_blank" rel="noopener" aria-label="T맵">
         <img src="images/icon/Tmap.png" alt="T맵">
       </a>
+    </div>
+  </div>
+</div>
+
+<!-- Afterparty modal -->
+<div class="modal-overlay" id="afterparty-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>뒤풀이 참여 신청</h3>
+      <button class="modal-close" data-close="afterparty">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="afterparty-desc">결혼식 후 뒤풀이에 함께 해주세요!<br>참석 의사를 미리 알려주시면 자리 준비에 큰 도움이 됩니다.</p>
+      <form class="afterparty-form" id="afterparty-form">
+        <input type="text" name="name" placeholder="이름" maxlength="20" required>
+        <input type="tel" name="phone" placeholder="연락처 (선택)" maxlength="20">
+        <select name="side" required>
+          <option value="" disabled selected>참석 구분 선택</option>
+          <option value="groom">신랑측</option>
+          <option value="bride">신부측</option>
+        </select>
+        <textarea name="note" placeholder="전하실 말씀 (선택)" maxlength="200"></textarea>
+        <button type="submit" class="cute-btn cute-btn--lavender afterparty-submit">신청하기</button>
+      </form>
+      <p id="afterparty-status" class="afterparty-status"></p>
     </div>
   </div>
 </div>

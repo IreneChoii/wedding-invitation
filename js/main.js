@@ -52,17 +52,33 @@ const CONFIG = {
   brideName: '최은서',
 };
 
-// 33 gallery photos exported from Figma (with crops applied)
-const GALLERY_IMAGES = Array.from({ length: 33 }, (_, i) => {
-  const n = String(i + 1).padStart(2, '0');
-  const base = [
-    'town_1','town_2','town_3','yellow_1','yellow_2','yellow_3','home_1','home_2','home_3',
-    'night_1','night_2','night_3','class_1','class_2','class_3','blue_1','blue_2','blue_3',
-    'univ_1','univ_2','univ_3','hi_1','hi_2','hi_3','stair_1','stair_2','stair_3',
-    'green_1','green_2','green_3','smile_1','smile_2','smile_3'
-  ][i];
-  return `images/gallery/${n}_${base}.jpg`;
-});
+// gallery photos: 33 figma exports + 8 studio shots inserted at fixed rows
+const FIGMA_GALLERY = [
+  'town_1','town_2','town_3','yellow_1','yellow_2','yellow_3','home_1','home_2','home_3',
+  'night_1','night_2','night_3','class_1','class_2','class_3','blue_1','blue_2','blue_3',
+  'univ_1','univ_2','univ_3','hi_1','hi_2','hi_3','stair_1','stair_2','stair_3',
+  'green_1','green_2','green_3','smile_1','smile_2','smile_3'
+].map((base, i) => `images/gallery/${String(i + 1).padStart(2, '0')}_${base}.jpg`);
+
+const STUDIO = [
+  'images/gallery/studio/2.jpg',
+  'images/gallery/studio/3.jpg',
+  'images/gallery/studio/1.JPG',
+  'images/gallery/studio/5.jpg',
+  'images/gallery/studio/7.jpg',
+  'images/gallery/studio/6.jpg',
+  'images/gallery/studio/8.JPG',
+  'images/gallery/studio/4.jpg',
+];
+
+const GALLERY_IMAGES = [
+  ...FIGMA_GALLERY.slice(0, 6),    // town_1~3, yellow_1~3
+  ...STUDIO.slice(0, 3),           // studio 1~3 (yellow 줄 바로 아래)
+  ...FIGMA_GALLERY.slice(6, 15),   // home, night, class
+  ...STUDIO.slice(3, 6),           // studio 4~6 (class 줄 바로 아래)
+  ...FIGMA_GALLERY.slice(15, 33),  // blue ~ smile
+  ...STUDIO.slice(6, 8),           // studio 7~8 (마지막 줄)
+];
 const PREVIEW_COUNT = 9; // first 9 shown directly, rest via "더보기"
 
 const ACCOUNT_DATA = {
@@ -718,9 +734,31 @@ document.addEventListener('DOMContentLoaded', () => {
   setupBgm();
   setupAutoScroll();
   setupPhotoShare();
+  setupAfterparty();
   setupShare();
+  setupDday();
   initBackend();
 });
+
+function setupDday() {
+  const el = $('#dday-num');
+  if (!el) return;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const target = new Date(CONFIG.weddingDate);
+  target.setHours(0, 0, 0, 0);
+  const diffMs = target - today;
+  const days = Math.ceil(diffMs / 86400000);
+  if (days > 0) {
+    el.textContent = days;
+  } else if (days === 0) {
+    el.textContent = 'D';
+    el.parentElement.querySelector('.dday-unit').textContent = '-DAY';
+  } else {
+    el.textContent = '결혼';
+    el.parentElement.querySelector('.dday-unit').textContent = '완료 ♡';
+  }
+}
 
 // ============================================================
 //  Share – KakaoTalk + Link copy
@@ -915,5 +953,83 @@ function setupPhotoShare() {
       setStatus(`✓ ${done}장 성공 / ✗ ${failed}장 실패`, 'error');
     }
     uploadBtn.disabled = false;
+  });
+}
+
+// ============================================================
+//  Afterparty – Supabase 'afterparty' table (localStorage fallback)
+// ============================================================
+//  Supabase에 아래 SQL로 테이블을 만들어주세요:
+//    create table afterparty (
+//      id bigserial primary key,
+//      name text not null,
+//      phone text,
+//      side text not null,
+//      note text,
+//      ts bigint not null
+//    );
+//    alter table afterparty enable row level security;
+//    create policy "afterparty_insert" on afterparty for insert with check (true);
+//    create policy "afterparty_select" on afterparty for select using (true);
+const AFTERPARTY_LOCAL_KEY = 'wedding_afterparty_v1';
+
+function setupAfterparty() {
+  const openBtn = $('#open-afterparty');
+  const form    = $('#afterparty-form');
+  const status  = $('#afterparty-status');
+  if (!openBtn || !form) return;
+
+  openBtn.addEventListener('click', () => {
+    $('#afterparty-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setStatus('', '');
+  });
+
+  function setStatus(text, kind) {
+    status.textContent = text;
+    status.classList.remove('ok', 'error');
+    if (kind) status.classList.add(kind);
+  }
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const entry = {
+      name: (fd.get('name') || '').toString().trim(),
+      phone: (fd.get('phone') || '').toString().trim(),
+      side: (fd.get('side') || '').toString(),
+      note: (fd.get('note') || '').toString().trim(),
+      ts: Date.now(),
+    };
+    if (!entry.name || !entry.side) {
+      setStatus('필수 항목을 모두 입력해주세요', 'error');
+      return;
+    }
+    const submitBtn = form.querySelector('.afterparty-submit');
+    submitBtn.disabled = true;
+    setStatus('전송 중...', '');
+
+    try {
+      if (dbBackend === 'supabase' && supabaseClient) {
+        const { error } = await supabaseClient.from('afterparty').insert([entry]);
+        if (error) throw error;
+      } else {
+        const list = JSON.parse(localStorage.getItem(AFTERPARTY_LOCAL_KEY) || '[]');
+        list.push(entry);
+        localStorage.setItem(AFTERPARTY_LOCAL_KEY, JSON.stringify(list));
+      }
+      setStatus('✓ 신청해주셔서 감사합니다 ♡', 'ok');
+      form.reset();
+      setTimeout(() => {
+        $('#afterparty-modal').classList.remove('open');
+        document.body.style.overflow = '';
+        setStatus('', '');
+      }, 1800);
+    } catch (err) {
+      console.error('afterparty submit failed:', err);
+      setStatus('전송 실패 — 잠시 후 다시 시도해주세요', 'error');
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 }
